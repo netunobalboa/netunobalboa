@@ -135,7 +135,7 @@ async function registerSW() { // (1)
   if ('serviceWorker' in navigator) { // (2)
     alert("tem sw no navegador");
     try {
-      await navigator.serviceWorker.register('./sw4.js'); // (3)
+      await navigator.serviceWorker.register('./sw.js'); // (3)
     } catch (e) {
       alert('ServiceWorker registration failed. Sorry about that.' + e); // (4)
     }
