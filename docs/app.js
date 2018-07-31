@@ -1,7 +1,7 @@
 
 function inicio(){
 
-alert("b");
+alert("c");
 
 }
 
