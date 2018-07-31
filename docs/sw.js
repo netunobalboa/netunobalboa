@@ -44,9 +44,9 @@ self.addEventListener('fetch', event => {
   
     event.respondWith(
       caches.match(event.request).then(cachedResponse => {
-        alert("passo 2");
+ //       alert("passo 2");
         if (cachedResponse) {
-          alert("passo 3");
+   //       alert("passo 3");
           return cachedResponse;
         }
 
