@@ -8,7 +8,7 @@ alert("b");
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/sw.js');
+    navigator.serviceWorker.register('./sw.js');
   });
 }
 
@@ -133,7 +133,6 @@ async function registerSW() { // (1)
 
 
   if ('serviceWorker' in navigator) { // (2)
-    alert("tem sw no navegador");
     try {
       await navigator.serviceWorker.register('./sw.js'); // (3)
     } catch (e) {
