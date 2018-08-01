@@ -1,7 +1,7 @@
 
 function inicio(){
 
-alert("aaaa");
+alert("77777777777");
 console.log("asadsdfsdfd");
 }
 
