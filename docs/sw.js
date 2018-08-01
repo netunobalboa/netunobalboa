@@ -43,6 +43,23 @@ self.addEventListener('activate', event => {
   );
 });
 
+//LIMPAR CACHE NO ACTIVATE, testar esse
+//self.addEventListener("activate", function(event) {
+ // event.waitUntil(
+ //   caches.keys().then(function(cacheNames) {
+//      return Promise.all(
+ //       cacheNames.map(function(cacheName) {
+  //        if (CACHE_NAME !== cacheName &&  cacheName.startsWith("gih-cache")) {
+   //         return caches.delete(cacheName);
+//          }
+//        })
+//      );
+//    })
+//  );
+//});
+
+
+
 // The fetch handler serves responses for same-origin resources from a cache.
 // If no response is found, it populates the runtime cache with the response
 // from the network before returning it to the page.
