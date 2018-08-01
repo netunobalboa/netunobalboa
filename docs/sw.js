@@ -13,7 +13,7 @@ const PRECACHE_URLS = [
 
 // The install handler takes care of precaching the resources we always need.
 self.addEventListener('install', event => {
-  alert("a");
+  
   console.log("a");
   event.waitUntil(
     caches.open(PRECACHE)
