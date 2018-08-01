@@ -1,7 +1,7 @@
 // Names of the two caches used in this version of the service worker.
 // Change to v2, etc. when you update any of the local resources, which will
 // in turn trigger the install event again.
-const PRECACHE = 'precache-v9';
+const PRECACHE = 'precache-v10';
 const RUNTIME = 'runtime';
 
 console.log("versão do sw" + PRECACHE);
@@ -80,12 +80,15 @@ self.addEventListener('activate', event => {
 
 // Serve from Cache
 self.addEventListener("fetch", event => {
+  console.log("entrou no fetch");
   event.respondWith(
     caches.match(event.request)
       .then(response => {
+        console.log("fetch online");
         return response || fetch(event.request);
       })
       .catch(() => {
+        console.log("fletch offline");
         return caches.match('offline.html');
       })
   )
