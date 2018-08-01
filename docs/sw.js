@@ -52,7 +52,7 @@ self.addEventListener('fetch', event => {
   console.log("entrou no fetch");
   // Skip cross-origin requests, like those for Google Analytics.
   if (event.request.url.startsWith(self.location.origin)) {
-  
+    console.log("entrou no fetch 1");
     event.respondWith(
       caches.match(event.request).then(cachedResponse => {
         console.log("entrou no fetch 2");
