@@ -1,8 +1,7 @@
 
 function inicio(){
 
-alert("77777777777");
-console.log("asadsdfsdfd");
+console.log("versao 1");
 }
 
 
