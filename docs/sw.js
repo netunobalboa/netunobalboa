@@ -47,32 +47,46 @@ self.addEventListener('activate', event => {
 // If no response is found, it populates the runtime cache with the response
 // from the network before returning it to the page.
 
-self.addEventListener('fetch', event => {
+//self.addEventListener('fetch', event => {
   
-  console.log("entrou no fetch");
-  // Skip cross-origin requests, like those for Google Analytics.
-  if (event.request.url.startsWith(self.location.origin)) {
-    console.log("entrou no fetch 1");
-    event.respondWith(
-      caches.match(event.request).then(cachedResponse => {
-        console.log("entrou no fetch 2");
-        if (cachedResponse) {
-          console.log("entrou no fetch 3");
-          return cachedResponse;
-        }
+ // console.log("entrou no fetch");
+ // // Skip cross-origin requests, like those for Google Analytics.
+ // if (event.request.url.startsWith(self.location.origin)) {
+ //  console.log("entrou no fetch 1");
+ //  event.respondWith(
+ //     caches.match(event.request).then(cachedResponse => {
+ //       console.log("entrou no fetch 2");
+ //       if (cachedResponse) {
+ //        console.log("entrou no fetch 3");
+ //         return cachedResponse;
+ //       }
 
-        return caches.open(RUNTIME).then(cache => {
-          console.log("entrou no fetch 4");
-          return fetch(event.request).then(response => {
-            console.log("entrou no fetch 5");
-            // Put a copy of the response in the runtime cache.
-            return cache.put(event.request, response.clone()).then(() => {
-              console.log("entrou no fetch 6");
-              return response;
-            });
-          });
-        });
+//        return caches.open(RUNTIME).then(cache => {
+//          console.log("entrou no fetch 4");
+//          return fetch(event.request).then(response => {
+//            console.log("entrou no fetch 5");
+//            // Put a copy of the response in the runtime cache.
+//            return cache.put(event.request, response.clone()).then(() => {
+//              console.log("entrou no fetch 6");
+//              return response;
+//            });
+//          });
+//        });
+//      })
+//    );
+//  }
+//});
+
+
+// Serve from Cache
+self.addEventListener("fetch", event => {
+  event.respondWith(
+    caches.match(event.request)
+      .then(response => {
+        return response || fetch(event.request);
       })
-    );
-  }
+      .catch(() => {
+        return caches.match('offline.html');
+      })
+  )
 });
