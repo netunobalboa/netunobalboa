@@ -1,8 +1,8 @@
 
 function inicio(){
 
-
-
+alert("aaa");
+consolel.log("asadsdfsdfd");
 }
 
 
