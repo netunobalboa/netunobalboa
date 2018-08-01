@@ -24,11 +24,12 @@ self.addEventListener('install', event => {
 
 // The activate handler takes care of cleaning up old caches.
 self.addEventListener('activate', event => {
-  alert("b");
+  
   console.log("b");
   const currentCaches = [PRECACHE, RUNTIME];
   event.waitUntil(
     caches.keys().then(cacheNames => {
+      alert("x");
       return cacheNames.filter(cacheName => !currentCaches.includes(cacheName));
     }).then(cachesToDelete => {
       return Promise.all(cachesToDelete.map(cacheToDelete => {
