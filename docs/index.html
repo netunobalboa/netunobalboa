@@ -87,19 +87,15 @@
 </html>
 
 <script>
-    if ('serviceWorker' in navigator) 
-  { 
-    try 
-    { 
-     await navigator.serviceWorker.register('./sw.js'); 
-    } 
+    if ('serviceWorker' in navigator) { 
+    try { 
+     await navigator.serviceWorker.register('./sw.js');} 
     catch (e) 
     {
-      alert('ServiceWorker registration failed. Sorry about that.' + e); 
-    } 
+      alert('ServiceWorker registration failed. Sorry about that.' + e);} 
   } else {
     alert("NAO tem sw no navegador");
     document.querySelector('.alert').removeAttribute('hidden'); 
-}}
+}
 </script>
 
