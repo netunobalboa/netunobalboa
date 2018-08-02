@@ -6,7 +6,10 @@ const RUNTIME = 'runtime';
 
 console.log("versão do sw" + NOME_CACHE_ATUAL);
 
- if (NOME_CACHE_ATUAL !== cacheName)  {
+
+
+//if, se o nome for diferente, resetar o service work.
+ //if (NOME_CACHE_ATUAL !== cacheName)  {
   
   console.log("desativando service work")
     navigator.serviceWorker.getRegistrations().then(function(registrations) {
@@ -21,9 +24,8 @@ console.log("versão do sw" + NOME_CACHE_ATUAL);
 
     });
   
- }
+ //}
 
-//colocar um if, se o nome for diferente, resetar o service work.
 
 // A list of local resources we always want to be cached.
 const CONTEUDO_DO_CACHE = [
