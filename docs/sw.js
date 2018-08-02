@@ -39,7 +39,7 @@ if(window.navigator && navigator.serviceWorker) {
 // A list of local resources we always want to be cached.
 const CONTEUDO_DO_CACHE = [
   './', // Alias for index.html
-  'styles.css'
+  'styles.css',
   'app.js'
 ];
 
