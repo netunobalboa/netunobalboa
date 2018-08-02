@@ -40,7 +40,7 @@ if(window.navigator && navigator.serviceWorker) {
 const CONTEUDO_DO_CACHE = [
   './', // Alias for index.html
   'styles.css'
- // 'app.js'
+  'app.js'
 ];
 
 // The install handler takes care of precaching the resources we always need.
