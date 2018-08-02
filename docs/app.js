@@ -1,16 +1,20 @@
 
 
-  if ('serviceWorker' in navigator) { // (2)
-    try {
-      await navigator.serviceWorker.register('./sw.js'); // (3)
-    } catch (e) {
-      alert('ServiceWorker registration failed. Sorry about that.' + e); // (4)
-    }
+  if ('serviceWorker' in navigator) 
+  { 
+    try 
+    { 
+     await navigator.serviceWorker.register('./sw.js'); 
+    } 
+    catch (e) 
+    {
+      alert('ServiceWorker registration failed. Sorry about that.' + e); 
+    } 
   } else {
     alert("NAO tem sw no navegador");
-    document.querySelector('.alert').removeAttribute('hidden'); //(5)
+    document.querySelector('.alert').removeAttribute('hidden'); 
   }
-}
+
 
 
 //if ('serviceWorker' in navigator) {
