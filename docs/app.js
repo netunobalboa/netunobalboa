@@ -1,15 +1,23 @@
 
-function inicio(){
 
-console.log("versao 1");
+  if ('serviceWorker' in navigator) { // (2)
+    try {
+      await navigator.serviceWorker.register('./sw.js'); // (3)
+    } catch (e) {
+      alert('ServiceWorker registration failed. Sorry about that.' + e); // (4)
+    }
+  } else {
+    alert("NAO tem sw no navegador");
+    document.querySelector('.alert').removeAttribute('hidden'); //(5)
+  }
 }
 
 
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-    navigator.serviceWorker.register('./sw.js');
-  });
-}
+//if ('serviceWorker' in navigator) {
+//  window.addEventListener('load', function() {
+//    navigator.serviceWorker.register('./sw.js');
+//  });
+//}
 
 
 
@@ -131,14 +139,3 @@ async function registerSW() { // (1)
 
 
 
-  if ('serviceWorker' in navigator) { // (2)
-    try {
-      await navigator.serviceWorker.register('./sw.js'); // (3)
-    } catch (e) {
-      alert('ServiceWorker registration failed. Sorry about that.' + e); // (4)
-    }
-  } else {
-    alert("NAO tem sw no navegador");
-    document.querySelector('.alert').removeAttribute('hidden'); //(5)
-  }
-}
