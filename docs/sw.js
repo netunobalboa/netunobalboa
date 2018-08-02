@@ -1,7 +1,7 @@
 // Names of the two caches used in this version of the service worker.
 // Change to v2, etc. when you update any of the local resources, which will
 // in turn trigger the install event again.
-const NOME_CACHE_ATUAL = 'precache-v13';
+const NOME_CACHE_ATUAL = 'precache-v14';
 const RUNTIME = 'runtime';
 
 console.log("versão do sw" + NOME_CACHE_ATUAL);
@@ -25,38 +25,40 @@ self.addEventListener('install', event => {
 });
 
 // The activate handler takes care of cleaning up old caches.
-self.addEventListener('activate', event => {
+//self.addEventListener('activate', event => {
   
-  console.log("entrou no activate");
-  const currentCaches = [NOME_CACHE_ATUAL, RUNTIME];
-  event.waitUntil(
-    caches.keys().then(cacheNames => {
+//  console.log("entrou no activate");
+//  const currentCaches = [NOME_CACHE_ATUAL, RUNTIME];
+//  event.waitUntil(
+//    caches.keys().then(cacheNames => {
       
-      return cacheNames.filter(cacheName => !currentCaches.includes(cacheName));
-    }).then(cachesToDelete => {
-     console.log("entrou na limpeza de cache");
-      return Promise.all(cachesToDelete.map(cacheToDelete => {
-        console.log("entrou na limpeza de cache 2");
-        return caches.delete(cacheToDelete);
-      }));
-    }).then(() => self.clients.claim())
-  );
-});
-
-//LIMPAR CACHE NO ACTIVATE, testar esse
-//self.addEventListener("activate", function(event) {
- // event.waitUntil(
- //   caches.keys().then(function(cacheNames) {
-//      return Promise.all(
- //       cacheNames.map(function(cacheName) {
-  //        if (CACHE_NAME !== cacheName &&  cacheName.startsWith("gih-cache")) {
-   //         return caches.delete(cacheName);
-//          }
-//        })
-//      );
-//    })
+//      return cacheNames.filter(cacheName => !currentCaches.includes(cacheName));
+//    }).then(cachesToDelete => {
+//     console.log("entrou na limpeza de cache");
+//      return Promise.all(cachesToDelete.map(cacheToDelete => {
+//       console.log("entrou na limpeza de cache 2");
+//        return caches.delete(cacheToDelete);
+//      }));
+//    }).then(() => self.clients.claim())
 //  );
 //});
+
+//LIMPAR CACHE NO ACTIVATE, testar esse
+self.addEventListener("activate", function(event) {
+   event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.map(function(cacheName) {
+          console.log("entrou na limpeza de cache");
+          if (NOME_CACHE_ATUAL !== cacheName &&  cacheName.startsWith("precache")) {
+            console.log("entrou na limpeza de cache 2");
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
+});
 
 
 
