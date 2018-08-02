@@ -8,7 +8,7 @@ console.log("versão do sw" + NOME_CACHE_ATUAL);
 
 // A list of local resources we always want to be cached.
 const CONTEUDO_DO_CACHE = [
-  './', // Alias for index.html
+ // './', // Alias for index.html
   'styles.css'
  // 'app.js'
 ];
