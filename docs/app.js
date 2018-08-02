@@ -1,6 +1,22 @@
 
 
 
+  if ('serviceWorker' in navigator) 
+  { 
+    try 
+    { 
+     await navigator.serviceWorker.register('./sw.js'); 
+    } 
+    catch (e) 
+    {
+      alert('ServiceWorker registration failed. Sorry about that.' + e); 
+    } 
+  } else {
+    alert("NAO tem sw no navegador");
+    document.querySelector('.alert').removeAttribute('hidden'); 
+  }}
+
+
 
 
 //if ('serviceWorker' in navigator) {
@@ -125,21 +141,5 @@ async function registerSW() { // (1)
 //      .then(() => console.log('service worker installed'))
 //      .catch(err => console.error('Error', err));
 //  }
-
-
-  if ('serviceWorker' in navigator) 
-  { 
-    try 
-    { 
-     await navigator.serviceWorker.register('./sw.js'); 
-    } 
-    catch (e) 
-    {
-      alert('ServiceWorker registration failed. Sorry about that.' + e); 
-    } 
-  } else {
-    alert("NAO tem sw no navegador");
-    document.querySelector('.alert').removeAttribute('hidden'); 
-  }}
 
 
