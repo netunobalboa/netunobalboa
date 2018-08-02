@@ -140,6 +140,6 @@ async function registerSW() { // (1)
   } else {
     alert("NAO tem sw no navegador");
     document.querySelector('.alert').removeAttribute('hidden'); 
-  }
+  }}
 
 
