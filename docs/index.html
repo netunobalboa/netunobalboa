@@ -1,4 +1,30 @@
+<script>
+//    if ('serviceWorker' in navigator) { 
+//      try { await navigator.serviceWorker.register('./sw.js');} 
+//      catch (e) { alert('ServiceWorker registration failed. Sorry about that.' + e);} 
+//    } 
+//    else 
+//    {
+//    alert("NAO tem sw no navegador");
+//   document.querySelector('.alert').removeAttribute('hidden'); 
+//    }
+  
+  
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('./sw.js');
+  });
+}
+else
+{alert("Seu navegador não possui Service Work, experimente utilizar o Chrome");}
+
+  
+</script>
+
+
 <!DOCTYPE html>
+
+
 
 <html lang="en">
 <link rel="manifest" href="./manifest.json">
@@ -86,26 +112,4 @@
 
 </html>
 
-<script>
-//    if ('serviceWorker' in navigator) { 
-//      try { await navigator.serviceWorker.register('./sw.js');} 
-//      catch (e) { alert('ServiceWorker registration failed. Sorry about that.' + e);} 
-//    } 
-//    else 
-//    {
-//    alert("NAO tem sw no navegador");
-//   document.querySelector('.alert').removeAttribute('hidden'); 
-//    }
-  
-  
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-    navigator.serviceWorker.register('./sw.js');
-  });
-}
-else
-{alert("Seu navegador não possui Service Work, experimente utilizar o Chrome");}
-
-  
-</script>
 
