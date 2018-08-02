@@ -88,15 +88,14 @@
 
 <script>
 //    if ('serviceWorker' in navigator) { 
-//    try { 
-//     await navigator.serviceWorker.register('./sw.js');} 
-//    catch (e) 
+//      try { await navigator.serviceWorker.register('./sw.js');} 
+//      catch (e) { alert('ServiceWorker registration failed. Sorry about that.' + e);} 
+//    } 
+//    else 
 //    {
-//      alert('ServiceWorker registration failed. Sorry about that.' + e);} 
-//  } else {
 //    alert("NAO tem sw no navegador");
 //   document.querySelector('.alert').removeAttribute('hidden'); 
-//}
+//    }
   
   
 if ('serviceWorker' in navigator) {
@@ -104,7 +103,8 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./sw.js');
   });
 }
-
+else
+{alert("Seu navegador não possui Service Work, experimente utilizar o Chrome");}
 
   
 </script>
