@@ -8,21 +8,30 @@ console.log("versão do sw" + NOME_CACHE_ATUAL);
 
 
 
+if(window.navigator && navigator.serviceWorker) {
+  navigator.serviceWorker.getRegistrations()
+  .then(function(registrations) {
+    for(let registration of registrations) {
+      registration.unregister();
+    }
+  });
+}
+
 //if, se o nome for diferente, resetar o service work.
  //if (NOME_CACHE_ATUAL !== cacheName)  {
   
-  console.log("desativando service work")
-    navigator.serviceWorker.getRegistrations().then(function(registrations) {
+ // console.log("desativando service work")
+ //   navigator.serviceWorker.getRegistrations().then(function(registrations) {
 
-    for(let registration of registrations) {
+//    for(let registration of registrations) {
 
-            registration.unregister()
+//            registration.unregister()
 
-    }}).catch(function(err) {
+//    }}).catch(function(err) {
 
-        console.log('Service Worker registration failed: ', err);
+//        console.log('Service Worker registration failed: ', err);
 
-    });
+//    });
   
  //}
 
