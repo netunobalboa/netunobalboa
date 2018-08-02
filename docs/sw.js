@@ -1,15 +1,15 @@
 // Names of the two caches used in this version of the service worker.
 // Change to v2, etc. when you update any of the local resources, which will
 // in turn trigger the install event again.
-const PRECACHE = 'precache-v10';
+const NOME_CACHE_ATUAL = 'precache-v10';
 const RUNTIME = 'runtime';
 
-console.log("versão do sw" + PRECACHE);
+console.log("versão do sw" + NOME_CACHE_ATUAL);
 
 // A list of local resources we always want to be cached.
-const PRECACHE_URLS = [
-  './', // Alias for index.html
-  'styles.css',
+const CONTEUDO_DO_CACHE = [
+  //'./', // Alias for index.html
+  'styles.css'
  // 'app.js'
 ];
 
@@ -18,8 +18,8 @@ self.addEventListener('install', event => {
   
   console.log("entrou no install");
   event.waitUntil(
-    caches.open(PRECACHE)
-      .then(cache => cache.addAll(PRECACHE_URLS))
+    caches.open(NOME_CACHE_ATUAL)
+      .then(cache => cache.addAll(CONTEUDO_DO_CACHE))
       .then(self.skipWaiting())
   );
 });
@@ -28,7 +28,7 @@ self.addEventListener('install', event => {
 self.addEventListener('activate', event => {
   
   console.log("entrou no activate");
-  const currentCaches = [PRECACHE, RUNTIME];
+  const currentCaches = [NOME_CACHE_ATUAL, RUNTIME];
   event.waitUntil(
     caches.keys().then(cacheNames => {
       
